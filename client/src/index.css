@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-700;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-zinc-900/80 border border-zinc-800/60 rounded-xl backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-zinc-700/60 hover:bg-zinc-900;
+  }
+
+  .input-field {
+    @apply w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-sm
+           text-zinc-100 placeholder-zinc-500
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50
+           transition-all duration-150;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-zinc-300 mb-1.5;
+  }
+}
