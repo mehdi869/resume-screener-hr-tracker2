@@ -9,7 +9,7 @@ const navItems = [
 
 export function Sidebar() {
   return (
-    <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 bg-zinc-900/50 border-r border-zinc-800/60 backdrop-blur-xl z-40">
+    <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 bg-zinc-900/90 border-r border-zinc-800/60 z-40">
       <div className="flex items-center gap-3 px-6 h-16 border-b border-zinc-800/60 shrink-0">
         <div className="p-2 rounded-lg bg-indigo-500/10">
           <ScrollText className="w-5 h-5 text-indigo-400" />
@@ -49,7 +49,7 @@ export function Sidebar() {
 
 export function BottomNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-zinc-900/95 border-t border-zinc-800/60 backdrop-blur-xl safe-area-bottom">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-zinc-900 border-t border-zinc-800/60 safe-area-bottom">
       <div className="flex items-center justify-around h-16 px-2">
         {navItems.map((item) => (
           <NavLink

@@ -3,13 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-zinc-950 text-zinc-100 antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-overflow-scrolling: touch;
   }
 
   ::-webkit-scrollbar {
@@ -31,7 +28,7 @@
 
 @layer components {
   .card {
-    @apply bg-zinc-900/80 border border-zinc-800/60 rounded-xl backdrop-blur-sm;
+    @apply bg-zinc-900/80 border border-zinc-800/60 rounded-xl;
   }
 
   .card-hover {
