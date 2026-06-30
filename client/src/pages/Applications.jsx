@@ -46,7 +46,7 @@ export default function Applications() {
       setJobs(data);
       if (data.length > 0) setSelectedJobId(data[0]._id);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to load jobs');
+      setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to load jobs'));
     } finally {
       setLoadingJobs(false);
     }
@@ -59,7 +59,7 @@ export default function Applications() {
       const { data } = await api.get(`/applications/job/${jobId}`);
       setApplications(data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to load applications');
+      setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to load applications'));
       setApplications([]);
     } finally {
       setLoadingApps(false);
@@ -88,7 +88,7 @@ export default function Applications() {
       setSuccessMsg('Application submitted successfully!');
       setTimeout(() => setSuccessMsg(''), 4000);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to submit application');
+      setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to submit application'));
     } finally {
       setSubmitting(false);
     }

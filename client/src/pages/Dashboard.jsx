@@ -43,7 +43,7 @@ export default function Dashboard() {
           setApplications(allApps);
         }
       } catch (err) {
-        if (!cancelled) setError(err.response?.data?.message || 'Failed to load dashboard data');
+        if (!cancelled) setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to load dashboard data'));
       } finally {
         if (!cancelled) setLoading(false);
       }

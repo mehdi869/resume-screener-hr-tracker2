@@ -26,7 +26,7 @@ export default function Jobs() {
       const { data } = await api.get('/jobs');
       setJobs(data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to load jobs');
+      setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to load jobs'));
     } finally {
       setLoading(false);
     }
@@ -45,7 +45,7 @@ export default function Jobs() {
       setShowModal(false);
       setForm({ title: '', description: '' });
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create job');
+      setError(err.isServerWaking ? err.message : (err.response?.data?.message || 'Failed to create job'));
     } finally {
       setSubmitting(false);
     }
